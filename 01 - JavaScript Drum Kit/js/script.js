@@ -1,16 +1,17 @@
 const playSound = (audio, event) => {
     const key = document.querySelector(`div[data-key="${event.code}"]`);
-    console.log(key);
     audio.currentTime = 0; //rewind to the start
     audio.play();
-    key.classList.toggle('playing');
+    key.classList.add('playing');
 
-    key.classList.toggle('playing');
+    // key.classList.toggle('playing');
 
 }
 
 function removeTransition(e) {
-    console.log(e);
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+    console.log(this);
 }
 
 
